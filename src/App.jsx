@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import SectionLists from "./StarList";
+
+const lists = [
+  {
+    id: crypto.randomUUID(),
+    name: "Winter's Orbit",
+    rating: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Dial D for Deadman",
+    rating: 4,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Words And Things",
+    rating: 0,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "The Galaxy, And The Ground Within",
+    rating: 5,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Setemi the Instructor",
+    rating: 1,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Jerry the Principal",
+    rating: 4,
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {lists.map((list) => {
+        return (
+          <SectionLists key={list.id} name={list.name} rating={list.rating} />
+        );
+      })}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
